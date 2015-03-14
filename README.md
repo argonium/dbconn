@@ -8,18 +8,18 @@ Here is the list of supported commands:
 * close database
 * connect <URL> [<user> [<pw>]]
 * connections
-* count rows <table>
+* count rows \<table\>
 * count tables
 * dbinfo
 * debug
 * debug off
 * debug on
 * describe table
-* dir [<path>]
-* export data <table name> [<where-clause>]
-* export schema <filename>
+* dir [\<path\>]
+* export data \<table name\> [\<where-clause\>]
+* export schema \<filename\>
 * gc
-* head <file>
+* head \<file\>
 * help
 * help <start of a command>
 * jar <filename>
@@ -29,7 +29,7 @@ Here is the list of supported commands:
 * quit
 * select connection
 * time
-* time <command>
+* time \<command\>
 * version
 
 Most of these commands require a database connection.  To connect to a database, use the 'connect' command.  For example:
