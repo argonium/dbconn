@@ -42,7 +42,7 @@ The above command will connect to the test database on localhost as the srogers 
 
 The 'export schema tables.xml' command is used to produce an XML file describing tables in the schema.  This is used by the SchemaBrowser application described elsewhere on this site.
 
-DBConn uses the JLine2 library for command-line history.
+DBConn uses the [JLine2 library](https://github.com/jline/jline2) for command-line history.
 
 To build the application, use Ant to run 'ant clean dist'.  To execute the application, you'll need the JDBC library for your database.  Execute via 'java -cp dbconn.jar:XYZ.jar io.miti.dbconn.app.DBConn', where XYZ.jar is your JDBC library.
 
