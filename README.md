@@ -40,7 +40,7 @@ Most of these commands require a database connection.  To connect to a database,
 
 The above command will connect to the test database on localhost as the srogers user.  The PostgreSQL JAR file needs to be in the classpath.
 
-The 'export schema tables.xml' command is used to produce an XML file describing tables in the schema.  This is used by the SchemaBrowser application described elsewhere on this site.
+The 'export schema tables.xml' command is used to produce an XML file describing tables in the schema.  This is used by the SchemaBrowser application described [elsewhere on this site](https://github.com/argonium/schema-browser).
 
 DBConn uses the [JLine2 library](https://github.com/jline/jline2) for command-line history.
 
