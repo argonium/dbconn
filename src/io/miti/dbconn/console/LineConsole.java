@@ -11,6 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -208,6 +209,8 @@ public final class LineConsole {
 			printTables();
 		} else if (validateCommand(cmds, 2, "list", "schemas")) {
 			printSchemas();
+    } else if (validateCommand(cmds, 3, "select", "schema")) {
+      selectSchema(cmds.get(2));
 		} else if (line.equals("time")) {
 			printTime();
 		} else if (line.startsWith("time ")) {
@@ -290,6 +293,19 @@ public final class LineConsole {
 					table, sCount);
 			System.out.println(msg);
 		}
+	}
+	
+	
+	private void selectSchema(final String schemaName) {
+    
+    // Check the database connection
+    if (!ConnManager.get().isValid()) {
+      System.out.println("No database connection found");
+      return;
+    }
+    
+    final Connection conn = ConnManager.get().getConn();
+    ConnManager.connectToSchema(schemaName, conn);
 	}
 	
 	
@@ -986,7 +1002,7 @@ public final class LineConsole {
 				"help", "quit", "gc", "mem", "time", "version",
 				"count tables", "export data <table name> [<where-clause>]",
 				"cat <file>", "head <file>", "dir [<path>]",
-				"time <command>",
+				"time <command>", "select schema <schema name>",
 				"count rows <table>", "dbinfo", "list schemas",
 				"check database", "list tables", "connections",
 				"select connection", "describe table", "export schema <filename>",
