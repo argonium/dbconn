@@ -95,6 +95,7 @@ public final class ArgumentParser {
 	/**
 	 * Get the build number from the jar manifest and print it.
 	 */
+	@SuppressWarnings("unused")
 	private String getBuiltDate() {
 		
 		// See if we're running inside a JAR file.  If we are,
