@@ -75,6 +75,8 @@ public final class TableColumn
   /** Blobs. */
   public static final int COL_BLOB = 14;
   
+  public static final int COL_UNKNOWN = 20;
+  
   /**
    * The column name.
    */
@@ -250,173 +252,13 @@ public final class TableColumn
         break;
         
       default:
-        throw new RuntimeException("Unknown type: " + typeStr + " / " + dbType);
+        javaType = COL_UNKNOWN;
+        // throw new RuntimeException("Unknown type: " + typeStr + " / " + dbType);
+        System.out.println("Unknown type: " + typeStr + " / " + dbType);
     }
     
     // Return the corresponding Java type
     return javaType;
-  }
-  
-  
-  /**
-   * Return the column as an accessor string.
-   * 
-   * @return the column type as an accessor string
-   */
-  public String getTypeAsAccessor()
-  {
-    String type = null;
-    
-    switch (colType)
-    {
-      case COL_INT:
-        type = "Int";
-        break;
-      
-      case COL_CHAR:
-        type = "String";
-        break;
-      
-      case COL_DOUBLE:
-        type = "Double";
-        break;
-      
-      case COL_FLOAT:
-        type = "Float";
-        break;
-      
-      case COL_LONG:
-        type = "Long";
-        break;
-      
-      case COL_SHORT:
-        type = "Short";
-        break;
-      
-      case COL_STRING:
-        type = "String";
-        break;
-        
-      case COL_DATE:
-        type = "Date";
-        break;
-    	
-      case COL_BYTE:
-        type = "Byte";
-        break;
-       
-      case COL_BOOLEAN:
-        type = "Boolean";
-        break;
-      
-      case COL_DECIMAL:
-        type = "BigDecimal";
-        break;
-        
-      case COL_CLOB:
-        type = "Clob";
-        break;
-        
-      case COL_BLOB:
-        type = "Blob";
-        break;
-        
-      case COL_XMLTYPE:
-        type = "String";
-        break;
-        
-      case COL_OBJECT:
-        type = "Object";
-        break;
-      
-      default:
-        throw new RuntimeException("Unknown column type: " +
-                                   Integer.toString(colType));
-    }
-    
-    // Return the type as a String
-    return type;
-  }
-  
-  
-  /**
-   * Return the column type as a Java class/intrinsic name.
-   * 
-   * @return the name of the Java type
-   */
-  public String getTypeAsJavaClass()
-  {
-    String type = null;
-    
-    switch (colType)
-    {
-      case COL_INT:
-        type = "int";
-        break;
-      
-      case COL_CHAR:
-        type = "char";
-        break;
-      
-      case COL_DOUBLE:
-        type = "double";
-        break;
-      
-      case COL_FLOAT:
-        type = "float";
-        break;
-      
-      case COL_LONG:
-        type = "long";
-        break;
-      
-      case COL_SHORT:
-        type = "short";
-        break;
-      
-      case COL_STRING:
-        type = "String";
-        break;
-      
-      case COL_DATE:
-        type = "Date";
-        break;
-    	
-      case COL_BYTE:
-        type = "byte";
-        break;
-      
-      case COL_BOOLEAN:
-        type = "boolean";
-        break;
-    	
-      case COL_DECIMAL:
-        type = "BigDecimal";
-        break;
-        
-      case COL_CLOB:
-        type = "Clob";
-        break;
-        
-      case COL_BLOB:
-        type = "Blob";
-        break;
-        
-      case COL_XMLTYPE:
-        type = "String";
-        break;
-      
-      case COL_OBJECT:
-        type = "Object";
-        break;
-      
-      default:
-        throw new RuntimeException("Unknown column type: " +
-                                   Integer.toString(colType));
-    }
-    
-    // Return the type as a String
-    return type;
   }
   
   
