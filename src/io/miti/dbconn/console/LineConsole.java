@@ -219,6 +219,12 @@ public final class LineConsole {
 			countTables();
 		} else if (validateCommand(cmds, 3, "count", "rows")) {
 			countTableRows(cmds.get(2));
+		} else if (validateCommand(cmds, 2, "meta", "username")) {
+		  System.out.println("Using the username for database metadata schema name? " + Database.useUserNameForSchema());
+    } else if (validateCommand(cmds, 3, "meta", "username", "on")) {
+      Database.useUserNameForSchema(true);
+    } else if (validateCommand(cmds, 3, "meta", "username", "off")) {
+      Database.useUserNameForSchema(false);
 		} else if (line.equals("gc")) {
 			gc();
 		} else if (line.equals("mem")) {
@@ -1002,6 +1008,7 @@ public final class LineConsole {
 				"help", "quit", "gc", "mem", "time", "version",
 				"count tables", "export data <table name> [<where-clause>]",
 				"cat <file>", "head <file>", "dir [<path>]",
+				"meta username", "meta username on", "meta username off",
 				"time <command>", "select schema <schema name>",
 				"count rows <table>", "dbinfo", "list schemas",
 				"check database", "list tables", "connections",
